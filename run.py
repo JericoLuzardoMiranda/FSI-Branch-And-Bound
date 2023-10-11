@@ -1,17 +1,18 @@
 # Search methods
-
 import search
 
-
-def search_route(number, origin, destination, romania):
+def search_route(number, origin, destination, graph):
     print(f"\n===== ID {number}: {origin} - {destination} =====")
-    gps = search.GPSProblem(origin, destination, romania)
+    gps = search.GPSProblem(origin, destination, graph)
 
     print("--- Amplitud ---")
     print(search.breadth_first_graph_search(gps).path())
 
     print("\n--- Profundidad ---")
     print(search.depth_first_graph_search(gps).path())
+
+    print("\n--- Ramificación y Acotación ---")
+    print(search.branch_and_bound_search_estrategy(gps).path())
 
 
 search_route(1, 'A', 'B', search.romania)
