@@ -98,6 +98,8 @@ def graph_search(problem, fringe):
     """Search through the successors of a problem to find a goal.
     The argument fringe should be an empty queue.
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
+
+
     start = timer()
     closed = {}
     generated = 1
@@ -118,7 +120,7 @@ def graph_search(problem, fringe):
             fringe.extend(node.expand(problem))
             generated += len(node.expand(problem))
     return None
-
+    
 
 def breadth_first_graph_search(problem):
     """Search the shallowest nodes in the search tree first. [p 74]"""
@@ -131,6 +133,9 @@ def depth_first_graph_search(problem):
 
 def branch_and_bound_search_estrategy(problem):
     return graph_search(problem, BranchAndBound())
+
+def branch_and_bound_search_estrategy_with_heuristics(problem):
+    return graph_search(problem, BranchAndBound_with_heuristics(problem))
 
 
 # _____________________________________________________________________________

@@ -2,7 +2,7 @@
 import search
 
 def search_route(number, origin, destination, graph):
-    print(f"\n===== ID {number}: {origin} - {destination} =====")
+    print(f"\n========== ID {number}: {origin} - {destination} ==========")
     gps = search.GPSProblem(origin, destination, graph)
 
     print("--- Amplitud ---")
@@ -13,6 +13,9 @@ def search_route(number, origin, destination, graph):
 
     print("\n--- Ramificación y Acotación ---")
     print(search.branch_and_bound_search_estrategy(gps).path())
+
+    print("\n--- Ramificación y Acotación con Subestimación ---")
+    print(search.branch_and_bound_search_estrategy_with_heuristics(gps).path())
 
 
 search_route(1, 'A', 'B', search.romania)
