@@ -110,11 +110,9 @@ def graph_search(problem, fringe):
         visited += 1
         if problem.goal_test(node.state):
             fin = timer()
-            print("Nodes Generated: " + str(generated))
-            print("Nodes Visited: " + str(visited))
-            print("Execution time: "+ str(fin - start) + " miliseconds")
-            print("Total cost: " + str(node.path_cost))
-            return node
+            # I have commented this line because it is not necessary to print the execution time
+            #print("Execution time: "+ str(fin - start) + " miliseconds")    
+            return node, visited, generated, node.path_cost
         if node.state not in closed:
             closed[node.state] = True
             fringe.extend(node.expand(problem))
